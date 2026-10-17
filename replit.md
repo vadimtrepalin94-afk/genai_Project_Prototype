@@ -40,7 +40,7 @@ Target scenario → confirm potential gap → diagnostic and introductory/challe
 
 ## User preferences
 
-Keep repository documentation ready for the user's existing public GitHub repository; its link will be supplied later.
+Keep repository documentation ready for the user's existing public GitHub repository: https://github.com/vadimtrepalin94-afk/genai_Project_Prototype . Do not infer pushed or published status from this link.
 
 ## Gotchas
 
