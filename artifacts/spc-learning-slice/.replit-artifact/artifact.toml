@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "STEM Industry Skills — SPC Practice Prototype"
+description = "A five-minute educational prototype for laboratory STEM PhD students exploring statistical process control through fictional examples, deterministic gap analysis, and adaptive practice."
+version = "1.0.0"
+id = "artifacts/spc-learning-slice"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24562
+
+[services.development]
+run = "pnpm --filter @workspace/spc-learning-slice run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/spc-learning-slice", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/spc-learning-slice/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24562"
+BASE_PATH = "/"

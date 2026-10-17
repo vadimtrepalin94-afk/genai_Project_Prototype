@@ -1,44 +1,50 @@
-# [Project name]
+# STEM Industry Skills — SPC Practice Prototype
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A five-minute educational web prototype for laboratory STEM PhD students practicing an SPC control-chart concept using fictional data.
+
+## Milestone scope
+
+This is the First Working Slice for a Current State of Generative AI semester project. Keep this milestone frontend-only, with prepared examples and deterministic branching. Do not add live AI, accounts, payments, a database, permanent learner profiles, job-board integration, instrument simulation, or a large course catalog. Do not publish yet.
+
+The audience is final-year laboratory STEM PhD students transitioning into industry; avoid overstating their experience or suggesting certification or workplace competence. The title is descriptive and provisional, not an approved brand.
+
+**Why:** the user deliberately scoped this milestone to one understandable five-minute learning flow, not a production learning platform.
+
+See `README.md` for use, limitations, references, and observed test results. Keep it suitable for the user's existing public GitHub repository; do not create or replace a repository.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Open the web preview at `/` and select **Load sample scenario**.
+- Managed workflow: `artifacts/spc-learning-slice: web`.
+- `pnpm --filter @workspace/spc-learning-slice typecheck` — app type check.
+- `node --test artifacts/spc-learning-slice/tests/logic.test.mjs` — deterministic rule checks.
+- No secrets, database, or backend are needed for this prototype.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspaces, React, Vite, TypeScript; in-memory React state only.
+- The starter API and database libraries are unused by this prototype.
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/spc-learning-slice/` — educational app.
+- `README.md` — product scope, use, limitations, references, and honest test record.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+Only the exact fictional scenario is supported; arbitrary text must receive an explicit unsupported-content message, not an implied AI analysis. Self-reported experience must not be silently overridden by diagnostic feedback.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Target scenario → confirm potential gap → diagnostic and introductory/challenge practice → review. Fictional data, supplied historical control limits, optional specification comparison, answer-specific feedback, retries and restart.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+Keep repository documentation ready for the user's existing public GitHub repository; its link will be supplied later.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+Progress is intentionally not saved after reload. Do not add persistence to this milestone.
 
 ## Pointers
 
